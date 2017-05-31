@@ -7,11 +7,30 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Dice.h"
+#import "InputHandler.h"
+#import "GameController.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        
+        BOOL loop = YES;
+    
+        GameController *gameController = [[GameController alloc] init];
+        
+        do{
+            
+            NSString *input = [InputHandler parseUserInput];
+            
+            
+            if([input isEqualToString:@"roll"]){
+            
+                [gameController printArray];
+                [gameController randomizeArrayValues];
+
+            }
+        }while(loop);
+        
     }
     return 0;
 }
