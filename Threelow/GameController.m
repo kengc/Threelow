@@ -9,7 +9,14 @@
 #import "GameController.h"
 #import "Dice.h"
 
+@interface GameController()
+    @property (nonatomic) NSArray *dice;
+    @property (nonatomic) NSMutableSet *hold;
+@end
+
+
 @implementation GameController
+
 
 - (instancetype)init
 {
@@ -37,9 +44,16 @@
 }
 
 -(void)holdDie:(NSNumber *)holdNumber{
-    
-    //NSNumber *val = [NSNumber numberWithInteger:holdNumber];
     [self.hold addObject:holdNumber];
+}
+
+-(void)printHoldSet{
+    //NSNumber held = 0;
+    
+    for(NSMutableSet *hold in self.hold){
+        NSLog(@"numbers held [%@]", hold);
+    }
+    //NSLog(@"numbers held [%@, ]", hold);
 }
 
 -(void)printArray{

@@ -10,11 +10,11 @@
 
 @interface GameController : NSObject
 
-@property (nonatomic) NSArray *dice;
-@property (nonatomic) NSMutableSet *hold;
+
 
 -(void)holdDie:(NSNumber *)holdNumber;
 -(void)printArray;
 -(void)randomizeArrayValues;
+-(void)printHoldSet;
 
 @end

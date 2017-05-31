@@ -11,5 +11,6 @@
 @interface InputHandler : NSObject
 
 + (NSString *)parseUserInput;
++ (NSNumber *)parseHoldDieInput;
 
 @end

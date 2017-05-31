@@ -27,6 +27,9 @@ int main(int argc, const char * argv[]) {
             
                 [gameController printArray];
                 [gameController randomizeArrayValues];
+                NSNumber *holdValue = [InputHandler parseHoldDieInput];
+                [gameController holdDie:holdValue];
+                [gameController printHoldSet];
 
             }
         }while(loop);
