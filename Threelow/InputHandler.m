@@ -29,7 +29,7 @@
 + (NSNumber *)parseHoldDieInput{
     char inputChars[255];
     
-    NSLog(@"hold value? (eg 2): ");
+    NSLog(@"hold value by index? (eg 0 - 4): ");
     fgets(inputChars, 255, stdin);
     
     NSString *inputString = [NSString stringWithCString:inputChars encoding:NSUTF8StringEncoding];
@@ -41,6 +41,8 @@
     NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
     f.numberStyle = NSNumberFormatterDecimalStyle;
     NSNumber *myNumber = [f numberFromString:trimmed];
+    
+    //NSInteger myInt = [trimmed intValue];
     
     return myNumber;
 }

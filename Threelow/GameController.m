@@ -10,7 +10,7 @@
 #import "Dice.h"
 
 @interface GameController()
-    @property (nonatomic) NSArray *dice;
+    @property (nonatomic) NSMutableArray *dice;
     @property (nonatomic) NSMutableSet *hold;
 @end
 
@@ -29,7 +29,7 @@
         Dice *rand4 = [[Dice alloc] init];
         Dice *rand5 = [[Dice alloc] init];
         
-        _dice = [NSArray arrayWithObjects:rand1, rand2, rand3, rand4, rand5, nil];
+        _dice = [NSMutableArray arrayWithObjects:rand1, rand2, rand3, rand4, rand5, nil];
         [self randomizeArrayValues];
         _hold = [[NSMutableSet alloc] init];
 
@@ -44,7 +44,20 @@
 }
 
 -(void)holdDie:(NSNumber *)holdNumber{
-    [self.hold addObject:holdNumber];
+    //index passed in, so have to scan mutablearray
+    //retrieve value by passed in index
+    //add to set
+    //remove from array
+    
+    NSInteger newHold = [holdNumber integerValue];
+    Dice *dieRoll = [self.dice objectAtIndex:newHold];
+    //NSLog(@"numberOut: %@", dieRoll.currentValue);
+    
+    [self.hold addObject:dieRoll.currentValue];
+    
+    [self.dice removeObjectAtIndex:newHold];
+    //NSLog(@"array count: %lu", (unsigned long)self.dice.count);
+    
 }
 
 -(void)printHoldSet{
