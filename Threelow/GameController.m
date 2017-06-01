@@ -11,7 +11,6 @@
 
 @interface GameController()
     @property (nonatomic) NSMutableArray *dice;
-    //@property (nonatomic) NSMutableSet *hold;
     @property (nonatomic) NSMutableArray *hold;
 @end
 
@@ -32,7 +31,7 @@
         
         _dice = [NSMutableArray arrayWithObjects:rand1, rand2, rand3, rand4, rand5, nil];
         [self randomizeArrayValues];
-        _hold = [[NSMutableSet alloc] init];
+        _hold = [[NSMutableArray alloc] init];
 
     }
     return self;
