@@ -87,14 +87,29 @@
 -(void)printArray{
     //need to compare array with set to see
     //if what's in the array is in the set
+    NSNumber *counter;
+    int zero = 0;
+    counter = [NSNumber numberWithInt:zero];
     
+//    if(self.hold.count < 1){
+//        for(Dice *die in self.dice){
+//            NSLog(@"%@ ", die.currentValue);
+//        }
+//    } else {
+//        //keep a counter and when the counter == the number in hold - skip
+//        
+//    }
+  
+    
+    //have to not show number based on index(s) in hold array
     for(Dice *die in self.dice){
-        
-        if([self.hold containsObject:die.currentValue]){
-        
+        if([self.hold containsObject:counter]){
+          //don't display
         } else {
-            NSLog(@"%@ ", die.currentValueSymbol);
+            //NSLog(@"%@ ", die.currentValueSymbol);
+            NSLog(@"%@ ", die.currentValue);
         }
+        counter = [NSNumber numberWithInt:[counter intValue] + 1];
      }
 }
 
