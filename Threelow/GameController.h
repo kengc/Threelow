@@ -16,5 +16,6 @@
 -(void)printArray;
 -(void)randomizeArrayValues;
 -(void)printHoldSet;
+-(void)resetDice;
 
 @end

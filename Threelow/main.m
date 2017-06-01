@@ -22,7 +22,6 @@ int main(int argc, const char * argv[]) {
             
             NSString *input = [InputHandler parseUserInput];
             
-            
             if([input isEqualToString:@"roll"]){
             
                 [gameController printArray];

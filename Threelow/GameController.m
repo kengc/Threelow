@@ -11,7 +11,8 @@
 
 @interface GameController()
     @property (nonatomic) NSMutableArray *dice;
-    @property (nonatomic) NSMutableSet *hold;
+    //@property (nonatomic) NSMutableSet *hold;
+    @property (nonatomic) NSMutableArray *hold;
 @end
 
 
@@ -47,33 +48,54 @@
     //index passed in, so have to scan mutablearray
     //retrieve value by passed in index
     //add to set
-    //remove from array
+    //hold die
+    //NSInteger newHold = [holdNumber integerValue];
+    //Dice *dieRoll = [self.dice objectAtIndex:newHold];
     
-    NSInteger newHold = [holdNumber integerValue];
-    Dice *dieRoll = [self.dice objectAtIndex:newHold];
-    //NSLog(@"numberOut: %@", dieRoll.currentValue);
+    if([self.hold containsObject:holdNumber]){
+        [self.hold removeObject:holdNumber];
+    } else {
+        [self.hold addObject:holdNumber];
+    }
     
-    [self.hold addObject:dieRoll.currentValue];
-    
-    [self.dice removeObjectAtIndex:newHold];
-    //NSLog(@"array count: %lu", (unsigned long)self.dice.count);
+    //if the passed in index corrsponds to a number in the set then
+//    //we assume to remove it
+//    if([self.hold containsObject:holdNumber]){
+//        [self.hold removeObject:holdNumber];
+//    }else{
+//        //[self.hold addObject:dieRoll.currentValue];
+//        [self.hold addObject:holdNumber]; //index?
+//    }
+    //hold die
+    //NSInteger newHold = [holdNumber integerValue];
+    //Dice *dieRoll = [self.dice objectAtIndex:newHold];
+}
+-(void)resetDice{
     
 }
 
 -(void)printHoldSet{
-    //NSNumber held = 0;
+    NSNumber *held = 0;
     
-    for(NSMutableSet *hold in self.hold){
+    for(NSMutableArray *hold in self.hold){
+        //held = [self.dice objectAtIndex:(NSUInteger)];
         NSLog(@"numbers held [%@]", hold);
     }
     //NSLog(@"numbers held [%@, ]", hold);
 }
 
 -(void)printArray{
+    //need to compare array with set to see
+    //if what's in the array is in the set
+    
     for(Dice *die in self.dice){
-        //NSLog(@"%@ ", die.currentValue);
-        NSLog(@"%@ ", die.currentValueSymbol);
-    }
+        
+        if([self.hold containsObject:die.currentValue]){
+        
+        } else {
+            NSLog(@"%@ ", die.currentValueSymbol);
+        }
+     }
 }
 
 @end
