@@ -71,7 +71,8 @@
 
 -(void)printArray{
     for(Dice *die in self.dice){
-        NSLog(@"%@ ", die.currentValue);
+        //NSLog(@"%@ ", die.currentValue);
+        NSLog(@"%@ ", die.currentValueSymbol);
     }
 }
 

@@ -30,7 +30,7 @@ int main(int argc, const char * argv[]) {
                 NSNumber *holdValue = [InputHandler parseHoldDieInput];
                 [gameController holdDie:holdValue];
                 [gameController printHoldSet];
-
+                
             }
         }while(loop);
         
