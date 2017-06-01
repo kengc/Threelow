@@ -17,5 +17,7 @@
 -(void)randomizeArrayValues;
 -(void)printHoldSet;
 -(void)resetDice;
+-(NSInteger)calculateScore;
+-(void)printStats;
 
 @end

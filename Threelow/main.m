@@ -25,11 +25,14 @@ int main(int argc, const char * argv[]) {
             if([input isEqualToString:@"roll"]){
             
                 [gameController printArray];
-                //[gameController randomizeArrayValues];
+                [gameController randomizeArrayValues];
                 NSNumber *holdValue = [InputHandler parseHoldDieInput];
                 [gameController holdDie:holdValue];
-                [gameController printHoldSet];
+                [gameController printStats];
                 
+                
+            } else if ([input isEqualToString:@"reset"]){
+                [gameController resetDice];
             }
         }while(loop);
         

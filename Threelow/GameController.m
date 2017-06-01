@@ -58,30 +58,38 @@
         [self.hold addObject:holdNumber];
     }
     
-    //if the passed in index corrsponds to a number in the set then
-//    //we assume to remove it
-//    if([self.hold containsObject:holdNumber]){
-//        [self.hold removeObject:holdNumber];
-//    }else{
-//        //[self.hold addObject:dieRoll.currentValue];
-//        [self.hold addObject:holdNumber]; //index?
-//    }
-    //hold die
-    //NSInteger newHold = [holdNumber integerValue];
-    //Dice *dieRoll = [self.dice objectAtIndex:newHold];
+
 }
 -(void)resetDice{
-    
+    if(self.hold){
+        [self.hold removeAllObjects];
+    }
+}
+
+-(void)printStats{
+    [self printHoldSet];
+    NSLog(@"Score: %ld", (long)[self calculateScore]);
 }
 
 -(void)printHoldSet{
-    NSNumber *held = 0;
     
     for(NSMutableArray *hold in self.hold){
         //held = [self.dice objectAtIndex:(NSUInteger)];
-        NSLog(@"numbers held [%@]", hold);
+        NSLog(@"Index held [%@]", hold);
     }
     //NSLog(@"numbers held [%@, ]", hold);
+}
+
+-(NSInteger)calculateScore{
+    
+    NSInteger score = 0;
+    
+    if(self.hold){
+        for(NSNumber *num in self.hold){
+            score += [num integerValue];
+        }
+    }
+    return score;
 }
 
 -(void)printArray{
@@ -91,23 +99,13 @@
     int zero = 0;
     counter = [NSNumber numberWithInt:zero];
     
-//    if(self.hold.count < 1){
-//        for(Dice *die in self.dice){
-//            NSLog(@"%@ ", die.currentValue);
-//        }
-//    } else {
-//        //keep a counter and when the counter == the number in hold - skip
-//        
-//    }
-  
-    
     //have to not show number based on index(s) in hold array
     for(Dice *die in self.dice){
         if([self.hold containsObject:counter]){
           //don't display
         } else {
-            //NSLog(@"%@ ", die.currentValueSymbol);
-            NSLog(@"%@ ", die.currentValue);
+            NSLog(@"%@ ", die.currentValueSymbol);
+            //NSLog(@"%@ ", die.currentValue);
         }
         counter = [NSNumber numberWithInt:[counter intValue] + 1];
      }
